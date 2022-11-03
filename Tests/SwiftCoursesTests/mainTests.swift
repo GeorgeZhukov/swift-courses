@@ -6,4 +6,8 @@ final class mainTests: XCTestCase {
 
         XCTAssertNotNil(SwiftCourses().text)
     }
+    
+    func tastHometask2() throws {
+        XCTAssertTrue(SwiftCourses().text.contains("Hometask #2"))
+    }
 }
