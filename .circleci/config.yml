@@ -3,17 +3,37 @@
    macos: circleci/macos@2.2.0
 
  jobs: 
-   test:
-     macos: 
-       xcode: "14.0.1"
-     steps: 
-       - checkout
-       - run:
-           name: Run tests
-           command: swift test
+   build_test_push:
+    docker:
+      - image: cimg/base:stable 
+        auth:
+          username: georgezhukov
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+        environment:
+          IMAGE: georgezhukov/swift-courses:dev
+    steps:
+      - checkout
 
+      - setup_remote_docker:
+          version: 20.10.14
+          docker_layer_caching: true
+
+      - run:
+          name: Pull and build docker image
+          command: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin && docker pull $IMAGE && docker build -t $IMAGE .
+
+      - run: 
+          name: Run tests
+          command: |
+            docker run -it $IMAGE bash -c 'swift-format lint  --recursive --strict --parallel /root/app && echo "Linting passed"'
+            docker run -it $IMAGE bash -c '/root/SwiftCoursesPackageTests'
+
+      - run:
+          name: Push docker image
+          command: docker push $IMAGE
 
  workflows:
    test_workflow:
      jobs: 
-       - test
+       - build_test_push
+
