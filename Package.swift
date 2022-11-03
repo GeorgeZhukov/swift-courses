@@ -4,13 +4,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftCour",
+    name: "SwiftCourses",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         
         .executable(
-            name: "SwiftCour",
-            targets: ["SwiftCour"]),
+            name: "SwiftCourses",
+            targets: ["SwiftCourses"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -21,10 +21,10 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         
         .executableTarget(
-            name: "SwiftCour",
+            name: "SwiftCourses",
             dependencies: []),
         .testTarget(
-            name: "SwiftCourTests",
-            dependencies: ["SwiftCour"]),
+            name: "SwiftCoursesTests",
+            dependencies: ["SwiftCourses"]),
     ]
 )
