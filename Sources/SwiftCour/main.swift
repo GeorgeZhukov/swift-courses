@@ -1,9 +1,11 @@
 public struct SwiftCour {
-    public private(set) var text = "Hello, World!"
+    public private(set) var text = ""
 
     public init() {
+        self.text += hometask2().output()
     }
 }
 
 
-let _ = SwiftCour()
+let app = SwiftCour()
+print(app.text)
