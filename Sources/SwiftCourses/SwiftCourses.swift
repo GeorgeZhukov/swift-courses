@@ -1,16 +1,19 @@
 public struct SwiftCourses {
-  public private(set) var text = ""
+  private var tasks: [HometaskBase] = []
 
   public init() {
-    let hometasks: [HometaskBase] = [
-      HomeTask1(),
-      HomeTask2(),
-      HomeTask3(),
+    self.tasks = [
+      HomeTask1(name: "Hometask #1"),
+      HomeTask2(name: "Hometask #2"),
+      HomeTask3(name: "Hometask #3"),
     ]
+  }
 
-    for (index, hometask) in hometasks.enumerated() {
-      self.text += "\n\nHometask #\(index+1)\n"
-      self.text += hometask.output()
-    }
+  public func buffer() -> String {
+    return self.tasks.map { task in task.output() }.joined(separator: "\n")
+  }
+
+  public func render() {
+    print(self.buffer())
   }
 }

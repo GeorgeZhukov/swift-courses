@@ -16,6 +16,24 @@ final class HomeTask3Tests: XCTestCase {
     self.output = HomeTask3().output()
   }
 
+  override func tearDownWithError() throws {
+    //    print(self.output)
+  }
+
+  override func tearDown() {
+    //    print(self.output)
+  }
+
+  func assertContains(line: String) {
+    let result = self.output.contains(line)
+    if !result {
+      print(self.output)
+      print("self.output not contains: \(line)")
+    }
+    XCTAssertTrue(result)
+
+  }
+
   func testTask1ProductPrices() throws {
     let lines = [
       "За 2 товаров, цена товара будет равна 1000.0, полная цена будет равна: 2000.0",
@@ -29,30 +47,31 @@ final class HomeTask3Tests: XCTestCase {
   }
 
   func testTask2BirthdayQuarter() throws {
-    XCTAssertTrue(self.output.contains("Квартал в котором родился: 2"))
+    return XCTAssertTrue(self.output.contains("Квартал в котором родился: 2"))
   }
 
   func testTask3EmergencyLevels() throws {
-    XCTAssertTrue(self.output.contains("Emergency levelC: \n\tСоблюдать спокойствие"))
-    XCTAssertTrue(
-      self.output.contains(
-        "Emergency levelA: \n\tВыключить все электрические приборы\n\tЗакрыть входные двери и окна\n\tСоблюдать спокойствие"
-      ))
-    XCTAssertTrue(
-      self.output.contains(
-        "Emergency levelB: \n\tЗакрыть входные двери и окна\n\tСоблюдать спокойствие"))
+    let lines = [
+      "Emergency levelC: Соблюдать спокойствие",
+      "Emergency levelA: Выключить все электрические приборы -> Закрыть входные двери и окна -> Соблюдать спокойствие",
+      "Emergency levelB: Закрыть входные двери и окна -> Соблюдать спокойствие",
+    ]
+
+    for line in lines {
+      assertContains(line: line)
+    }
   }
 
   func testTask4Calculation() throws {
     let lines = [
-      "sum(9.0, 3.0): 12.0",
-      "diff(9.0, 3.0): 6.0",
-      "multiply(9.0, 3.0): 27.0",
-      "div(9.0, 3.0): 3.0",
+      "9.0 * 3.0 = 27.0",
+      "9.0 / 3.0 = 3.0",
+      "9.0 - 3.0 = 6.0",
+      "9.0 + 3.0 = 12.0",
     ]
 
     for line in lines {
-      XCTAssertTrue(self.output.contains(line))
+      assertContains(line: line)
     }
   }
 }

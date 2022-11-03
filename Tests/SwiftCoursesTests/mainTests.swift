@@ -6,8 +6,7 @@ final class mainTests: XCTestCase {
   private var buffer: String = ""
 
   override func setUp() {
-
-    buffer = SwiftCourses().text
+    self.buffer = SwiftCourses().buffer()
   }
 
   func testMain() throws {
@@ -15,14 +14,14 @@ final class mainTests: XCTestCase {
   }
 
   func testRendersHometask1() throws {
-    XCTAssertTrue(buffer.contains("Hometask #1"))
+    XCTAssertTrue(buffer.contains("Task: Hometask #1"))
   }
 
   func tastHometask2() throws {
-    XCTAssertTrue(buffer.contains("Hometask #2"))
+    XCTAssertTrue(buffer.contains("Task: Hometask #1"))
   }
 
   func tastHometask3() throws {
-    XCTAssertTrue(buffer.contains("Hometask #3"))
+    XCTAssertTrue(buffer.contains("Task: Hometask #1"))
   }
 }

@@ -12,9 +12,7 @@ WORKDIR /var/local/swift-format
 
 RUN git checkout $VERSION
 RUN swift build -c release
-RUN chmod +x .build/release/swift-format
 
-RUN cp .build/release/swift-format /usr/bin/swift-format
 
 # Install courses package
 WORKDIR /root
@@ -31,11 +29,15 @@ RUN swift build  --build-tests
 FROM swift:slim
 WORKDIR /root
 
-COPY --from=builder /root .
-COPY --from=builder /usr/bin/swift-format /usr/bin/swift-format
+COPY --from=builder /root app/
+COPY --from=builder /var/local/swift-format/.build/release/swift-format /usr/bin/swift-format
 
-RUN chmod +x /root/entrypoint.sh
+ADD entrypoint.sh .
 
-RUN cp .build/debug/SwiftCoursesPackageTests.xctest /root/SwiftCoursesPackageTests
+RUN mv app/.build .
 
-CMD ["bash /root/entrypoint.sh"]
+RUN cp .build/debug/SwiftCoursesPackageTests.xctest SwiftCoursesPackageTests
+
+RUN chmod +x entrypoint.sh /usr/bin/swift-format SwiftCoursesPackageTests
+
+# CMD ["/root/entrypoint.sh"]

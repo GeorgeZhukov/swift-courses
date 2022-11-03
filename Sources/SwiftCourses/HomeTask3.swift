@@ -8,100 +8,40 @@
 import Foundation
 
 public class HomeTask3: HometaskBase {
-  enum EmergencyLevel {
-    case levelA
-    case levelB
-    case levelC
+  enum EmergencyLevel: String {
+    case levelA = "Выключить все электрические приборы"
+    case levelB = "Закрыть входные двери и окна"
+    case levelC = "Соблюдать спокойствие"
+
+    var message: String {
+      return self.rawValue
+    }
   }
 
   enum CalculationType {
-    case sum(Float, Float)
-    case diff(Float, Float)
-    case multiply(Float, Float)
-    case div(Float, Float)
-  }
+    typealias CalcType = Float
 
-  public override func tasks() -> [() -> String] {
-    return [task1, task2, task3, task4]
-  }
+    case sum(CalcType, CalcType)
+    case diff(CalcType, CalcType)
+    case multiply(CalcType, CalcType)
+    case div(CalcType, CalcType)
 
-  func task1() -> String {
-    let twoProducts = 2
-    let twelveProducts = 12
-    let twentyOneProducts = 21
-    let thirdyFiveProducts = 35
-
-    let allProducts = [twoProducts, twelveProducts, twentyOneProducts, thirdyFiveProducts]
-
-    let result: [String] = allProducts.map { productsQuantity in
-      let pricePerProduct = pricePerProduct(quantity: productsQuantity)
-      let totalPrice = pricePerProduct * Float(productsQuantity)
-      return
-        "\n\tЗа \(productsQuantity) товаров, цена товара будет равна \(pricePerProduct), полная цена будет равна: \(totalPrice)"
+    var result: CalcType {
+      switch self {
+      case .sum(let left, let right):
+        return left + right
+      case .diff(let left, let right):
+        return left - right
+      case .multiply(let left, let right):
+        return left * right
+      case .div(let left, let right):
+        return left / right
+      }
     }
 
-    return result.joined(separator: "\n")
   }
 
-  func task2() -> String {
-    var birthday = DateComponents()
-
-    birthday.year = 1993
-    birthday.month = 4
-    birthday.day = 26
-
-    let quarter = myQuarter(date: birthday)
-
-    return "Квартал в котором родился: \(quarter)"
-  }
-
-  func task3() -> String {
-    let levels: [EmergencyLevel] = [.levelC, .levelA, .levelB]
-    return "\n"
-      + levels.map { level in
-        "Emergency \(level): \n\t" + self.emergencyInfo(level: level)
-      }.joined(separator: "\n")
-  }
-
-  func task4() -> String {
-    let first: Float = 9.0
-    let second: Float = 3.0
-
-    let result = [
-      CalculationType.sum(first, second),
-      CalculationType.diff(first, second),
-      CalculationType.multiply(first, second),
-      CalculationType.div(first, second),
-    ]
-    return result.map { operation in
-      if let result = self.calculate(operation: operation) {
-        return "\(operation): \(result)"
-      } else {
-        return "\(operation): error"
-      }
-
-    }.joined(separator: "\n")
-  }
-
-  private func calculate(operation: CalculationType) -> Float? {
-    switch operation {
-    case .sum(let a, let b):
-      return a + b
-    case .diff(let a, let b):
-      return a - b
-    case .multiply(let a, let b):
-      return a * b
-    case .div(let a, let b):
-      if b == 0 {
-        print("Divison by 0 error")
-        return nil
-      }
-      return a / b
-
-    }
-  }
-
-  private func pricePerProduct(quantity: Int) -> Float {
+  func pricePerProduct(quantity: Int) -> Float {
     switch quantity {
     case 0..<10:
       return 1000
@@ -114,7 +54,7 @@ public class HomeTask3: HometaskBase {
     }
   }
 
-  private func myQuarter(date: DateComponents) -> Int {
+  func myQuarter(date: DateComponents) -> Int {
     switch date.month! {
     case 0...3:
       return 1
@@ -127,23 +67,78 @@ public class HomeTask3: HometaskBase {
     default:
       return -1
     }
-
   }
 
-  private func emergencyInfo(level: EmergencyLevel) -> String {
-    var buffer: [String] = []
+  func message(level: EmergencyLevel) -> String {
+    var buffer: [EmergencyLevel] = []
 
     switch level {
     case .levelA:
-      buffer.append("Выключить все электрические приборы")
+      buffer.append(EmergencyLevel.levelA)
       fallthrough
     case .levelB:
-      buffer.append("Закрыть входные двери и окна")
+      buffer.append(EmergencyLevel.levelB)
       fallthrough
     case .levelC:
-      buffer.append("Соблюдать спокойствие")
+      buffer.append(EmergencyLevel.levelC)
     }
-    return buffer.joined(separator: "\n\t")
-
+    return buffer.map({ level in
+      level.rawValue
+    }).joined(separator: " -> ")
   }
+
+  func task1() -> String {
+    let productsQuantities = [2, 12, 21, 35]
+
+    let result: [String] = productsQuantities.map { productsQuantity in
+
+      let priceProduct = pricePerProduct(quantity: productsQuantity)
+      let totalPrice = priceProduct * Float(productsQuantity)
+      return
+        "\n\tЗа \(productsQuantity) товаров, цена товара будет равна \(priceProduct), полная цена будет равна: \(totalPrice)"
+
+    }
+
+    return result.joined(separator: "\n")
+  }
+
+  func task2() -> String {
+    let birthday = DateComponents(year: 1993, month: 4, day: 26)
+
+    let quarter = myQuarter(date: birthday)
+
+    return "Квартал в котором родился: \(quarter)"
+  }
+
+  func task3() -> String {
+    let levels: [EmergencyLevel] = [.levelC, .levelA, .levelB]
+
+    let messages = levels.map { level in "\n\tEmergency \(level): " + self.message(level: level) }
+
+    return messages.joined()
+  }
+
+  func task4() -> String {
+    let left: CalculationType.CalcType = 9
+    let right: CalculationType.CalcType = 3
+
+    let operations: [String: CalculationType] = [
+      "+": .sum(left, right),
+      "-": .diff(left, right),
+      "*": .multiply(left, right),
+      "/": .div(left, right),
+    ]
+
+    var result: [String] = []
+
+    for (operationLabel, operation) in operations {
+      result.append("\(left) \(operationLabel) \(right) = \(operation.result)")
+    }
+    return "\n\t" + result.joined(separator: "\n\t")
+  }
+
+  override public func tasks() -> [() -> String] {
+    return [task1, task2, task3, task4]
+  }
+
 }

@@ -25,8 +25,8 @@
       - run: 
           name: Run tests
           command: |
-            docker run -it $IMAGE "/usr/bin/swift-format lint --strict --recursive /root"
-            docker run -it $IMAGE
+            docker run -it $IMAGE bash -c 'swift-format lint  --recursive --strict --parallel /root/app && echo "Linting passed"'
+            docker run -it $IMAGE bash -c '/root/SwiftCoursesPackageTests'
 
       - run:
           name: Push docker image
