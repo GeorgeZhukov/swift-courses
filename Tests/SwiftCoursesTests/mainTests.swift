@@ -9,4 +9,7 @@ final class mainTests: XCTestCase {
     // func testRendersHometask1() throws {
     //     XCTAssertTrue(SwiftCourses().text.contains("Hometask #1"))
     // }
+    // func tastHometask2() throws {
+    //     XCTAssertTrue(SwiftCourses().text.contains("Hometask #2"))
+    // }
 }

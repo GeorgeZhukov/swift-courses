@@ -2,7 +2,9 @@ public struct SwiftCourses {
     public private(set) var text = ""
 
     public init() {
-        let hometasks: Array<HometaskBase> = []
+        let hometasks: Array<HometaskBase> = [
+            HomeTask2()
+        ]
         
         for (index, hometask) in hometasks.enumerated() {
             self.text += "\n\nHometask #\(index+1)\n"
