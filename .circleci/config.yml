@@ -3,28 +3,37 @@
    macos: circleci/macos@2.2.0
 
  jobs: 
-   test:
-     macos: 
-       xcode: "14.0.1"
-     steps: 
-       - checkout
-       - run: |
-           git clone https://github.com/apple/swift-format.git _swift-format
-           cd _swift-format
-           git checkout swift-5.7.1-RELEASE
-           swift build -c release
-           cd ../
-           cp _swift-format/.build/release/swift-format .
+   build_test_push:
+    docker:
+      - image: cimg/base:stable 
+        auth:
+          username: georgezhukov
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+        environment:
+          IMAGE: georgezhukov/swift-courses:dev
+    steps:
+      - checkout
 
-       - run:
-           name: Check Format
-           command: ./swift-format lint --recursive --parallel --strict .
-       - run:
-           name: Run tests
-           command: swift test --parallel
+      - setup_remote_docker:
+          version: 20.10.14
+          docker_layer_caching: true
 
+      - run:
+          name: Pull and build docker image
+          command: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin && docker pull $IMAGE && docker build -t $IMAGE .
+
+      - run: 
+          name: Run tests
+          command: |
+            docker run -it $IMAGE "/usr/bin/swift-format lint --strict --recursive /root"
+            docker run -it $IMAGE
+
+      - run:
+          name: Push docker image
+          command: docker push $IMAGE
 
  workflows:
    test_workflow:
      jobs: 
-       - test
+       - build_test_push
+

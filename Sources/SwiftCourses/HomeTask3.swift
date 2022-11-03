@@ -56,10 +56,10 @@ public class HomeTask3: HometaskBase {
   }
 
   func task3() -> String {
-    let levels: [EmergencyLevel] = [.C, .A, .B]
+    let levels: [EmergencyLevel] = [.levelC, .levelA, .levelB]
     return "\n"
       + levels.map { level in
-        "Emergency Level \(level): \n\t" + self.emergencyInfo(level: level)
+        "Emergency \(level): \n\t" + self.emergencyInfo(level: level)
       }.joined(separator: "\n")
   }
 

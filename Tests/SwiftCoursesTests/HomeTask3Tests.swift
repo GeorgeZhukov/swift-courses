@@ -33,14 +33,14 @@ final class HomeTask3Tests: XCTestCase {
   }
 
   func testTask3EmergencyLevels() throws {
-    XCTAssertTrue(self.output.contains("Emergency Level C: \n\tСоблюдать спокойствие"))
+    XCTAssertTrue(self.output.contains("Emergency levelC: \n\tСоблюдать спокойствие"))
     XCTAssertTrue(
       self.output.contains(
-        "Emergency Level A: \n\tВыключить все электрические приборы\n\tЗакрыть входные двери и окна\n\tСоблюдать спокойствие"
+        "Emergency levelA: \n\tВыключить все электрические приборы\n\tЗакрыть входные двери и окна\n\tСоблюдать спокойствие"
       ))
     XCTAssertTrue(
       self.output.contains(
-        "Emergency Level B: \n\tЗакрыть входные двери и окна\n\tСоблюдать спокойствие"))
+        "Emergency levelB: \n\tЗакрыть входные двери и окна\n\tСоблюдать спокойствие"))
   }
 
   func testTask4Calculation() throws {
