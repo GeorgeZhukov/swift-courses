@@ -9,7 +9,9 @@ import Foundation
 
 public class HomeTask3: HometaskBase {
   enum EmergencyLevel {
-    case A, B, C
+    case levelA
+    case levelB
+    case levelC
   }
 
   enum CalculationType {
@@ -132,13 +134,13 @@ public class HomeTask3: HometaskBase {
     var buffer: [String] = []
 
     switch level {
-    case .A:
+    case .levelA:
       buffer.append("Выключить все электрические приборы")
       fallthrough
-    case .B:
+    case .levelB:
       buffer.append("Закрыть входные двери и окна")
       fallthrough
-    case .C:
+    case .levelC:
       buffer.append("Соблюдать спокойствие")
     }
     return buffer.joined(separator: "\n\t")

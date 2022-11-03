@@ -8,9 +8,20 @@
        xcode: "14.0.1"
      steps: 
        - checkout
+       - run: |
+           git clone https://github.com/apple/swift-format.git _swift-format
+           cd _swift-format
+           git checkout swift-5.7.1-RELEASE
+           swift build -c release
+           cd ../
+           cp _swift-format/.build/release/swift-format .
+
+       - run:
+           name: Check Format
+           command: ./swift-format lint --recursive --parallel --strict .
        - run:
            name: Run tests
-           command: swift test
+           command: swift test --parallel
 
 
  workflows:
