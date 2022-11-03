@@ -1,12 +1,12 @@
 import XCTest
-@testable import SwiftCour
+@testable import SwiftCourses
 
 final class mainTests: XCTestCase {
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertNotNil(SwiftCour().text)
+        XCTAssertNotNil(SwiftCourses().text)
         
     }
 }
