@@ -3,7 +3,9 @@ public struct SwiftCourses {
 
     public init() {
         let hometasks: Array<HometaskBase> = [
-            HomeTask2()
+            HomeTask1(),
+            HomeTask2(),
+            HomeTask3()
         ]
         
         for (index, hometask) in hometasks.enumerated() {
