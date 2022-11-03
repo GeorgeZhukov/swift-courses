@@ -1,0 +1,19 @@
+ version: 2.1
+ orbs: 
+   macos: circleci/macos@2.2.0
+
+ jobs: 
+   test:
+     macos: 
+       xcode: "14.0.1"
+     steps: 
+       - checkout
+       - run:
+           name: Run tests
+           command: swift test
+
+
+ workflows:
+   test_workflow:
+     jobs: 
+       - test
