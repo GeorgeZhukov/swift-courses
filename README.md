@@ -14,10 +14,10 @@
       - [] Div and Mod
       - [] Mod
   1. Hometask 3 - Working with switch and enum
-      - [] Product pricing
-      - [] Birthday quarter
-      - [] Emergency Levels
-      - [] Calculation Enum
+      - [x] Product pricing
+      - [x] Birthday quarter
+      - [x] Emergency Levels
+      - [x] Calculation Enum
 
 
 
