@@ -8,6 +8,9 @@
 import Foundation
 
 public class HometaskBase {
+  public typealias TaskResult = [String]
+  public typealias TaskList = [() -> TaskResult]
+
   private let name: String
 
   init(name: String = "Hometask") {
@@ -16,10 +19,11 @@ public class HometaskBase {
 
   public func output() -> String {
     let data = self.tasks().enumerated().map { index, taskFunction in
-      let taskNo: String = "[#\(index + 1)] →"
-      let taskResult: String = taskFunction()
+      let taskNo: String = "[#\(index + 1)]"
+      let taskResult: TaskResult = taskFunction()
 
-      return "\(taskNo) \(taskResult)"
+      let tasksOutput = taskResult.map { line in "\n  → \(line)" }.joined()
+      return "\(taskNo) \(tasksOutput)"
     }
 
     let buffer = data.joined(separator: "\n ")
@@ -31,7 +35,7 @@ public class HometaskBase {
       """
   }
 
-  public func tasks() -> [() -> String] {
+  public func tasks() -> TaskList {
     return []
   }
 }

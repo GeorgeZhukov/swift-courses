@@ -87,7 +87,7 @@ public class HomeTask3: HometaskBase {
     }).joined(separator: " -> ")
   }
 
-  func task1() -> String {
+  func task1() -> TaskResult {
     let productsQuantities = [2, 12, 21, 35]
 
     let result: [String] = productsQuantities.map { productsQuantity in
@@ -95,30 +95,30 @@ public class HomeTask3: HometaskBase {
       let priceProduct = pricePerProduct(quantity: productsQuantity)
       let totalPrice = priceProduct * Float(productsQuantity)
       return
-        "\n\tЗа \(productsQuantity) товаров, цена товара будет равна \(priceProduct), полная цена будет равна: \(totalPrice)"
+        "За \(productsQuantity) товаров, цена товара будет равна \(priceProduct), полная цена будет равна: \(totalPrice)"
 
     }
 
-    return result.joined(separator: "\n")
+    return result
   }
 
-  func task2() -> String {
+  func task2() -> TaskResult {
     let birthday = DateComponents(year: 1993, month: 4, day: 26)
 
     let quarter = myQuarter(date: birthday)
 
-    return "Квартал в котором родился: \(quarter)"
+    return ["Квартал в котором родился: \(quarter)"]
   }
 
-  func task3() -> String {
+  func task3() -> TaskResult {
     let levels: [EmergencyLevel] = [.levelC, .levelA, .levelB]
 
-    let messages = levels.map { level in "\n\tEmergency \(level): " + self.message(level: level) }
+    let messages = levels.map { level in "Emergency \(level): " + self.message(level: level) }
 
-    return messages.joined()
+    return messages
   }
 
-  func task4() -> String {
+  func task4() -> TaskResult {
     let left: CalculationType.CalcType = 9
     let right: CalculationType.CalcType = 3
 
@@ -134,10 +134,10 @@ public class HomeTask3: HometaskBase {
     for (operationLabel, operation) in operations {
       result.append("\(left) \(operationLabel) \(right) = \(operation.result)")
     }
-    return "\n\t" + result.joined(separator: "\n\t")
+    return result
   }
 
-  override public func tasks() -> [() -> String] {
+  override public func tasks() -> TaskList {
     return [task1, task2, task3, task4]
   }
 

@@ -9,29 +9,9 @@ import XCTest
 
 @testable import SwiftCourses
 
-final class HomeTask3Tests: XCTestCase {
-  private var output: String = ""
-
-  override func setUpWithError() throws {
-    self.output = HomeTask3().output()
-  }
-
-  override func tearDownWithError() throws {
-    //    print(self.output)
-  }
-
-  override func tearDown() {
-    //    print(self.output)
-  }
-
-  func assertContains(line: String) {
-    let result = self.output.contains(line)
-    if !result {
-      print(self.output)
-      print("self.output not contains: \(line)")
-    }
-    XCTAssertTrue(result)
-
+final class HomeTask3Tests: HomeTaskTests {
+  override func getHomeTask() -> HometaskBase {
+    return HomeTask3()
   }
 
   func testTask1ProductPrices() throws {
@@ -42,12 +22,12 @@ final class HomeTask3Tests: XCTestCase {
       "За 35 товаров, цена товара будет равна 600.0, полная цена будет равна: 21000.0",
     ]
     for line in lines {
-      XCTAssertTrue(self.output.contains(line))
+      assertContains(line: line)
     }
   }
 
   func testTask2BirthdayQuarter() throws {
-    return XCTAssertTrue(self.output.contains("Квартал в котором родился: 2"))
+    assertContains(line: "Квартал в котором родился: 2")
   }
 
   func testTask3EmergencyLevels() throws {

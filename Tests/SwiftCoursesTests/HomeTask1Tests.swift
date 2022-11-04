@@ -9,18 +9,13 @@ import XCTest
 
 @testable import SwiftCourses
 
-final class HomeTask1Tests: XCTestCase {
-  private var output: String = ""
-
-  override func setUpWithError() throws {
-    self.output = HomeTask1().output()
-  }
-
-  override func tearDownWithError() throws {
+final class HomeTask1Tests: HomeTaskTests {
+  override func getHomeTask() -> HometaskBase {
+    return HomeTask1()
   }
 
   func testTask1ICanCode() throws {
-    XCTAssertTrue(self.output.contains("I can code!"))
+    assertContains(line: "I can code!")
   }
 
   func testTask2AgeCalc() throws {
@@ -34,8 +29,7 @@ final class HomeTask1Tests: XCTestCase {
   }
 
   func testTask3TriangleCalc() throws {
-    XCTAssertTrue(
-      self.output.contains("Катеты: AB = 8.0, CB = 6.0, Вычесленная гипотинуза: CA = 10.0"))
+    assertContains(line: "Катеты: AB = 8.0, CB = 6.0, Вычесленная гипотинуза: CA = 10.0")
   }
 
 }
