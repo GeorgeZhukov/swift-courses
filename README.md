@@ -6,8 +6,18 @@
 
 ## List of hometasks:
   1. Hometask 1 - First swift program, basic calculation, working with types and math functions.
+      - [x] I can code
+      - [x] My age
+      - [x] Triangle calculactions
   1. Hometask 2 - Simple arithmetic: sum, remainder, division
+      - [x] Sum
+      - [x] Div and Mod
+      - [x] Mod
   1. Hometask 3 - Working with switch and enum
+      - [x] Product pricing
+      - [x] Birthday quarter
+      - [x] Emergency Levels
+      - [x] Calculation Enum
 
 
 
@@ -129,53 +139,57 @@ Next command build image and run tests (with linter checks):
 docker build -t georgezhukov/swift-courses:dev .
 docker run -it georgezhukov/swift-courses:dev bash entrypoint.sh
 
-Linting passed
-Test Suite 'All tests' started at 2022-11-04 19:27:43.355
-Test Suite 'root.xctest' started at 2022-11-04 19:27:43.360
-Test Suite 'HomeTask1Tests' started at 2022-11-04 19:27:43.360
-Test Case 'HomeTask1Tests.testTask1ICanCode' started at 2022-11-04 19:27:43.360
-Test Case 'HomeTask1Tests.testTask1ICanCode' passed (0.001 seconds)
-Test Case 'HomeTask1Tests.testTask2AgeCalc' started at 2022-11-04 19:27:43.361
-Test Case 'HomeTask1Tests.testTask2AgeCalc' passed (0.001 seconds)
-Test Case 'HomeTask1Tests.testTask3TriangleCalc' started at 2022-11-04 19:27:43.363
-Test Case 'HomeTask1Tests.testTask3TriangleCalc' passed (0.0 seconds)
-Test Suite 'HomeTask1Tests' passed at 2022-11-04 19:27:43.363
-	 Executed 3 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
-Test Suite 'HomeTask2Tests' started at 2022-11-04 19:27:43.363
-Test Case 'HomeTask2Tests.testTask1Sum' started at 2022-11-04 19:27:43.363
-Test Case 'HomeTask2Tests.testTask1Sum' passed (0.0 seconds)
-Test Case 'HomeTask2Tests.testTask2Mod' started at 2022-11-04 19:27:43.364
-Test Case 'HomeTask2Tests.testTask2Mod' passed (0.0 seconds)
-Test Case 'HomeTask2Tests.testTask3Division' started at 2022-11-04 19:27:43.364
-Test Case 'HomeTask2Tests.testTask3Division' passed (0.0 seconds)
-Test Suite 'HomeTask2Tests' passed at 2022-11-04 19:27:43.364
-	 Executed 3 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
-Test Suite 'HomeTask3Tests' started at 2022-11-04 19:27:43.364
-Test Case 'HomeTask3Tests.testTask1ProductPrices' started at 2022-11-04 19:27:43.364
-Test Case 'HomeTask3Tests.testTask1ProductPrices' passed (0.001 seconds)
-Test Case 'HomeTask3Tests.testTask2BirthdayQuarter' started at 2022-11-04 19:27:43.365
-Test Case 'HomeTask3Tests.testTask2BirthdayQuarter' passed (0.0 seconds)
-Test Case 'HomeTask3Tests.testTask3EmergencyLevels' started at 2022-11-04 19:27:43.365
-/root/Tests/SwiftCoursesTests/HomeTask3Tests.swift:37: error: HomeTask3Tests.testTask3EmergencyLevels : XCTAssertTrue failed -
-/root/Tests/SwiftCoursesTests/HomeTask3Tests.swift:41: error: HomeTask3Tests.testTask3EmergencyLevels : XCTAssertTrue failed -
-Test Case 'HomeTask3Tests.testTask3EmergencyLevels' failed (0.0 seconds)
-Test Case 'HomeTask3Tests.testTask4Calculation' started at 2022-11-04 19:27:43.365
-/root/Tests/SwiftCoursesTests/HomeTask3Tests.swift:55: error: HomeTask3Tests.testTask4Calculation : XCTAssertTrue failed -
-Test Case 'HomeTask3Tests.testTask4Calculation' failed (0.0 seconds)
-Test Suite 'HomeTask3Tests' failed at 2022-11-04 19:27:43.366
-	 Executed 4 tests, with 3 failures (0 unexpected) in 0.002 (0.002) seconds
-Test Suite 'mainTests' started at 2022-11-04 19:27:43.366
-Test Case 'mainTests.testMain' started at 2022-11-04 19:27:43.366
-Test Case 'mainTests.testMain' passed (0.0 seconds)
-Test Case 'mainTests.testRendersHometask1' started at 2022-11-04 19:27:43.366
-Test Case 'mainTests.testRendersHometask1' passed (0.0 seconds)
-Test Suite 'mainTests' passed at 2022-11-04 19:27:43.366
-	 Executed 2 tests, with 0 failures (0 unexpected) in 0.0 (0.0) seconds
-Test Suite 'root.xctest' failed at 2022-11-04 19:27:43.366
-	 Executed 12 tests, with 3 failures (0 unexpected) in 0.006 (0.006) seconds
-Test Suite 'All tests' failed at 2022-11-04 19:27:43.366
-	 Executed 12 tests, with 3 failures (0 unexpected) in 0.006 (0.006) seconds
 ```
+
+<details>
+  <summary>Docker output</summary>
+
+  ```bash
+Linting passed
+Test Suite 'All tests' started at 2022-11-04 19:39:19.255
+Test Suite 'root.xctest' started at 2022-11-04 19:39:19.257
+Test Suite 'HomeTask1Tests' started at 2022-11-04 19:39:19.257
+Test Case 'HomeTask1Tests.testTask1ICanCode' started at 2022-11-04 19:39:19.257
+Test Case 'HomeTask1Tests.testTask1ICanCode' passed (0.001 seconds)
+Test Case 'HomeTask1Tests.testTask2AgeCalc' started at 2022-11-04 19:39:19.258
+Test Case 'HomeTask1Tests.testTask2AgeCalc' passed (0.001 seconds)
+Test Case 'HomeTask1Tests.testTask3TriangleCalc' started at 2022-11-04 19:39:19.260
+Test Case 'HomeTask1Tests.testTask3TriangleCalc' passed (0.0 seconds)
+Test Suite 'HomeTask1Tests' passed at 2022-11-04 19:39:19.260
+   Executed 3 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite 'HomeTask2Tests' started at 2022-11-04 19:39:19.260
+Test Case 'HomeTask2Tests.testTask1Sum' started at 2022-11-04 19:39:19.260
+Test Case 'HomeTask2Tests.testTask1Sum' passed (0.0 seconds)
+Test Case 'HomeTask2Tests.testTask2Mod' started at 2022-11-04 19:39:19.260
+Test Case 'HomeTask2Tests.testTask2Mod' passed (0.0 seconds)
+Test Case 'HomeTask2Tests.testTask3Division' started at 2022-11-04 19:39:19.261
+Test Case 'HomeTask2Tests.testTask3Division' passed (0.0 seconds)
+Test Suite 'HomeTask2Tests' passed at 2022-11-04 19:39:19.261
+   Executed 3 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'HomeTask3Tests' started at 2022-11-04 19:39:19.261
+Test Case 'HomeTask3Tests.testTask1ProductPrices' started at 2022-11-04 19:39:19.261
+Test Case 'HomeTask3Tests.testTask1ProductPrices' passed (0.001 seconds)
+Test Case 'HomeTask3Tests.testTask2BirthdayQuarter' started at 2022-11-04 19:39:19.262
+Test Case 'HomeTask3Tests.testTask2BirthdayQuarter' passed (0.0 seconds)
+Test Case 'HomeTask3Tests.testTask3EmergencyLevels' started at 2022-11-04 19:39:19.262
+Test Case 'HomeTask3Tests.testTask3EmergencyLevels' passed (0.0 seconds)
+Test Case 'HomeTask3Tests.testTask4Calculation' started at 2022-11-04 19:39:19.263
+Test Case 'HomeTask3Tests.testTask4Calculation' passed (0.0 seconds)
+Test Suite 'HomeTask3Tests' passed at 2022-11-04 19:39:19.263
+   Executed 4 tests, with 0 failures (0 unexpected) in 0.002 (0.002) seconds
+Test Suite 'mainTests' started at 2022-11-04 19:39:19.263
+Test Case 'mainTests.testMain' started at 2022-11-04 19:39:19.263
+Test Case 'mainTests.testMain' passed (0.0 seconds)
+Test Case 'mainTests.testRendersHometask1' started at 2022-11-04 19:39:19.263
+Test Case 'mainTests.testRendersHometask1' passed (0.0 seconds)
+Test Suite 'mainTests' passed at 2022-11-04 19:39:19.264
+   Executed 2 tests, with 0 failures (0 unexpected) in 0.001 (0.001) seconds
+Test Suite 'root.xctest' passed at 2022-11-04 19:39:19.264
+   Executed 12 tests, with 0 failures (0 unexpected) in 0.006 (0.006) seconds
+Test Suite 'All tests' passed at 2022-11-04 19:39:19.264
+   Executed 12 tests, with 0 failures (0 unexpected) in 0.006 (0.006) seconds
+  ```
+</details>
 
 
 ## License
