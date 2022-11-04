@@ -10,9 +10,9 @@
       - [] My age
       - [] Triangle calculactions
   1. Hometask 2 - Simple arithmetic: sum, remainder, division
-      - [] Sum
-      - [] Div and Mod
-      - [] Mod
+      - [x] Sum
+      - [x] Div and Mod
+      - [x] Mod
   1. Hometask 3 - Working with switch and enum
       - [] Product pricing
       - [] Birthday quarter
