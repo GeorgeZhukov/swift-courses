@@ -6,9 +6,9 @@
 
 ## List of hometasks:
   1. Hometask 1 - First swift program, basic calculation, working with types and math functions.
-      - [] I can code
-      - [] My age
-      - [] Triangle calculactions
+      - [x] I can code
+      - [x] My age
+      - [x] Triangle calculactions
   1. Hometask 2 - Simple arithmetic: sum, remainder, division
       - [] Sum
       - [] Div and Mod
