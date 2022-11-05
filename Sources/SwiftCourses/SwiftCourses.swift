@@ -6,6 +6,7 @@ public struct SwiftCourses {
       HomeTask1(name: "Hometask #1"),
       HomeTask2(name: "Hometask #2"),
       HomeTask3(name: "Hometask #3"),
+      HomeTask4(name: "Hometask #4"),
     ]
   }
 

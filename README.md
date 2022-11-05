@@ -18,6 +18,14 @@
       - [x] Birthday quarter
       - [x] Emergency Levels
       - [x] Calculation Enum
+  1. Hometask 4 - Types, caclulations and conditions
+      - [x] Calc speed
+      - [x] Solve math task
+      - [x] Number even test
+      - [x] Merge two numbers
+      - [x] Calculations
+      - [x] Conditions
+      - [x] Coke
 
 
 
