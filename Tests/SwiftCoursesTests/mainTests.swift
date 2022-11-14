@@ -12,4 +12,9 @@ final class mainTests: XCTestCase {
   func testMain() throws {
     XCTAssertNotNil(buffer)
   }
+
+  func testRendersHometask5() throws {
+    XCTAssertTrue(buffer.contains("Task: Hometask #5"))
+  }
+
 }
