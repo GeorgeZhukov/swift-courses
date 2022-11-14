@@ -14,10 +14,24 @@
       - [] Div and Mod
       - [] Mod
   1. Hometask 3 - Working with switch and enum
-      - [] Product pricing
-      - [] Birthday quarter
-      - [] Emergency Levels
-      - [] Calculation Enum
+      - [x] Product pricing
+      - [x] Birthday quarter
+      - [x] Emergency Levels
+      - [x] Calculation Enum
+  1. Hometask 4 - Types, caclulations and conditions
+      - [x] Calc speed
+      - [x] Solve math task
+      - [x] Number even test
+      - [x] Merge two numbers
+      - [x] Calculations
+      - [x] Conditions
+      - [x] Coke
+  1. Hometask 5 - Arrays, Number Pow, Odd and Even, Random numbers
+      - [x] Working with arrays/dict, uniq items
+      - [x] Bank deposit
+      - [x] Number power
+      - [x] Even and odd test
+      - [x] Random number 
 
 
 
