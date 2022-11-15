@@ -2,7 +2,9 @@ public struct SwiftCourses {
   private var tasks: [HometaskBase] = []
 
   public init() {
-    self.tasks = []
+    self.tasks = [
+      HomeTask6(name: "Hometask #6")
+    ]
   }
 
   public func buffer() -> String {
