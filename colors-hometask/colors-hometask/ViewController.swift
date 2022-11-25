@@ -5,6 +5,7 @@
 //  Created by George on 24.11.22.
 //
 
+import SwiftCourses
 import UIKit
 
 class ViewController: UIViewController {
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
   var observations: [NSKeyValueObservation] = []
 
   override func viewDidLoad() {
+
     super.viewDidLoad()
     // Do any additional setup after loading the view.
 
@@ -36,7 +38,6 @@ class ViewController: UIViewController {
       self.initSliders()
     }
   }
-
 
   @IBAction func sliderChanged(_ sender: UISlider) {
     animate {
@@ -52,6 +53,9 @@ class ViewController: UIViewController {
   }
 
   @IBAction func reverseClicked(_ sender: UIButton) {
+    let courses = SwiftCourses()
+    let buf = courses.buffer()
+    print(buf)
     animate {
       self.allSliders.forEach { item in
         item.value = 1 - item.value
@@ -82,7 +86,8 @@ class ViewController: UIViewController {
   }
 
   private func animate(_ animations: @escaping () -> Void) {
-    UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear, animations: animations) { completed in
+    UIView.animate(withDuration: 0.4, delay: 0, options: .curveLinear, animations: animations) {
+      completed in
       if completed {
         self.updateColor()
       }
@@ -96,7 +101,7 @@ class ViewController: UIViewController {
     }
   }
 
-  private func buildObserve(_ keyPath: SliderPath, label: UILabel) -> NSKeyValueObservation  {
+  private func buildObserve(_ keyPath: SliderPath, label: UILabel) -> NSKeyValueObservation {
     return observe(keyPath, options: [.new]) { viewController, changed in
       guard let newValue = changed.newValue else { return }
 
@@ -153,7 +158,6 @@ class ViewController: UIViewController {
     }
   }
 
-
   private func setShadow(_ layer: CALayer) {
     layer.shadowRadius = 0.5
     layer.shadowOpacity = 1
@@ -163,8 +167,7 @@ class ViewController: UIViewController {
 
   private var allSliders: [UISlider] {
     return [
-      redSlider, greenSlider, blueSlider
+      redSlider, greenSlider, blueSlider,
     ]
   }
 }
-

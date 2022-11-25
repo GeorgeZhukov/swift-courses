@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E22891F29303003009AF621 /* SwiftCourses in Frameworks */ = {isa = PBXBuildFile; productRef = 5E22891E29303003009AF621 /* SwiftCourses */; };
 		5E282ECA292FA9970052C0D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E282EC9292FA9970052C0D3 /* AppDelegate.swift */; };
 		5E282ECC292FA9970052C0D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E282ECB292FA9970052C0D3 /* SceneDelegate.swift */; };
 		5E282ECE292FA9970052C0D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E282ECD292FA9970052C0D3 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5E22891C29302FDD009AF621 /* swift-courses */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-courses"; path = ..; sourceTree = "<group>"; };
 		5E282EC6292FA9970052C0D3 /* colors-hometask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "colors-hometask.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E282EC9292FA9970052C0D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E282ECB292FA9970052C0D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +33,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E22891F29303003009AF621 /* SwiftCourses in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E22891829302F2C009AF621 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				5E22891C29302FDD009AF621 /* swift-courses */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		5E22891D29303003009AF621 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5E282EBD292FA9970052C0D3 = {
 			isa = PBXGroup;
 			children = (
+				5E22891829302F2C009AF621 /* Packages */,
 				5E282EC8292FA9970052C0D3 /* colors-hometask */,
 				5E282EC7292FA9970052C0D3 /* Products */,
+				5E22891D29303003009AF621 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +103,9 @@
 			dependencies = (
 			);
 			name = "colors-hometask";
+			packageProductDependencies = (
+				5E22891E29303003009AF621 /* SwiftCourses */,
+			);
 			productName = "colors-hometask";
 			productReference = 5E282EC6292FA9970052C0D3 /* colors-hometask.app */;
 			productType = "com.apple.product-type.application";
@@ -366,6 +389,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5E22891E29303003009AF621 /* SwiftCourses */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftCourses;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E282EBE292FA9970052C0D3 /* Project object */;
 }
